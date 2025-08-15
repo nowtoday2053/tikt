@@ -2,17 +2,17 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'US TikTok Accounts — $5 each',
-  description: 'Clean, ready-to-roll US-based TikTok accounts. No shadows. No suspicious login detected nonsense. $5 per account.',
+  title: 'TokSupply — Premium US TikTok Accounts',
+  description: 'Premium US-based TikTok accounts from TokSupply. Clean, verified, and ready to scale. $5 per account.',
   openGraph: {
-    title: 'US TikTok Accounts — $5 each',
-    description: 'Clean, ready-to-roll US-based TikTok accounts. No shadows. No suspicious login detected nonsense. $5 per account.',
+    title: 'TokSupply — Premium US TikTok Accounts',
+    description: 'Premium US-based TikTok accounts from TokSupply. Clean, verified, and ready to scale. $5 per account.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'US TikTok Accounts — $5 each',
-    description: 'Clean, ready-to-roll US-based TikTok accounts. No shadows. No suspicious login detected nonsense. $5 per account.',
+    title: 'TokSupply — Premium US TikTok Accounts',
+    description: 'Premium US-based TikTok accounts from TokSupply. Clean, verified, and ready to scale. $5 per account.',
   },
 }
 

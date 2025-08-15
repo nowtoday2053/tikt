@@ -56,44 +56,43 @@ export default function CheckoutForm() {
   }
 
   return (
-    <div className="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 max-w-sm mx-auto smooth-hover">
+    <div className="max-w-md mx-auto">
       <form onSubmit={handleSubmit} className="space-y-8">
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-2 text-crisp">Get started</h3>
-          <p className="text-gray-600 text-crisp">Choose your quantity and checkout securely</p>
+        <div className="text-center space-y-4">
+          <h3 className="text-2xl md:text-3xl font-heading text-black">Get Your Accounts</h3>
         </div>
 
         <div className="space-y-4">
-          <label htmlFor="quantity" className="block text-sm font-semibold text-gray-900 text-center text-crisp">
-            Number of accounts
+          <label htmlFor="quantity" className="block text-base font-heading text-black text-center">
+            Quantity:
           </label>
-          <div className="relative">
-            <input
-              type="number"
-              id="quantity"
-              min="1"
-              max="1000"
-              value={quantity}
-              onChange={handleQuantityChange}
-              className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl text-2xl font-bold text-center bg-white focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition-all duration-300 text-crisp hover:border-gray-300"
-              disabled={isLoading}
-            />
-          </div>
-          <p className="text-xs text-gray-500 text-center text-crisp">Min: 1 • Max: 1000</p>
+          <input
+            type="number"
+            id="quantity"
+            min="1"
+            max="1000"
+            value={quantity}
+            onChange={handleQuantityChange}
+            className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg text-2xl font-heading text-center bg-white focus:ring-0 focus:border-black transition-all duration-200"
+            disabled={isLoading}
+          />
+          <p className="text-sm text-gray-600 text-center">min: 1 • max: 1,000</p>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-2xl text-center border border-gray-200 transition-all duration-300 hover:shadow-lg">
-          <div className="text-sm font-medium text-gray-600 mb-1 text-crisp">Total amount</div>
-          <div className="text-4xl font-black text-gray-900 text-crisp">
-            ${total.toLocaleString('en-US')}
-          </div>
-          <div className="text-sm text-gray-500 mt-1 text-crisp">
-            {quantity} account{quantity !== 1 ? 's' : ''} × $5 each
+        <div className="bg-gray-50 p-6 rounded-lg text-center border border-gray-200">
+          <div className="space-y-2">
+            <div className="text-sm font-heading text-black">total</div>
+            <div className="text-4xl font-display text-black">
+              ${total.toLocaleString('en-US')}
+            </div>
+            <div className="text-base text-gray-600">
+              {quantity} account{quantity !== 1 ? 's' : ''} × $5 each
+            </div>
           </div>
         </div>
 
         {error && (
-          <div className="text-red-600 text-sm text-center bg-red-50 p-4 rounded-2xl border border-red-100">
+          <div className="text-red-600 text-sm text-center bg-red-50 p-4 rounded-lg border border-red-200">
             {error}
           </div>
         )}
@@ -102,27 +101,24 @@ export default function CheckoutForm() {
           type="submit"
           disabled={isLoading}
           aria-busy={isLoading}
-          className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl focus:ring-4 focus:ring-indigo-200 shadow-lg text-crisp"
+          className="w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white font-heading py-4 px-8 rounded-lg text-lg transition-all duration-200"
         >
           {isLoading ? (
-            <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <span className="flex items-center justify-center gap-2">
+              <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Processing...
+              processing...
             </span>
           ) : (
-            `Buy now — $${total.toLocaleString('en-US')}`
+            `buy now — $${total.toLocaleString('en-US')}`
           )}
         </button>
 
-        <div className="text-center space-y-2">
-          <p className="text-xs text-gray-500 text-crisp">
-            🔒 Secure payment via Stripe
-          </p>
-          <p className="text-xs text-gray-400 text-crisp">
-            No refunds • Delivered in 1-3 days
+        <div className="text-center">
+          <p className="text-xs text-gray-500">
+            secure payment via stripe • delivered in 1-3 days
           </p>
         </div>
       </form>
